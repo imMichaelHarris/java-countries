@@ -2,8 +2,8 @@ package com.javacountries.demo;
 
 public class Country {
     private String name;
-    private int population;
-    private double landMass;
+    private long population;
+    private long landMass;
     private int medianAge;
 
     public String getName() {
@@ -14,19 +14,19 @@ public class Country {
         this.name = name;
     }
 
-    public int getPopulation() {
+    public long getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(long population) {
         this.population = population;
     }
 
-    public double getLandMass() {
+    public long getLandMass() {
         return landMass;
     }
 
-    public void setLandMass(double landMass) {
+    public void setLandMass(long landMass) {
         this.landMass = landMass;
     }
 
