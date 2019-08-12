@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/names")
 public class NamesController {
@@ -19,6 +21,7 @@ public class NamesController {
     // /names/start/{letter} - return alphabetically that start with letter
     @GetMapping(value = "/start/{letter}", produces = {"application/json"})
     public ResponseEntity<?> sortByLetter(@PathVariable char letter){
+        ArrayList<Country> sortedCountries = DemoApplication.countryList.
         return new ResponseEntity<>();
     }
 
