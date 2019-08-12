@@ -217,6 +217,6 @@ public class CountryList {
                 tempSortedCountries.add(c);
             }
         }
-        return null;
+        return tempSortedCountries;
     }
 }

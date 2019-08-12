@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 @RestController
 @RequestMapping("/names")
@@ -21,8 +22,9 @@ public class NamesController {
     // /names/start/{letter} - return alphabetically that start with letter
     @GetMapping(value = "/start/{letter}", produces = {"application/json"})
     public ResponseEntity<?> sortByLetter(@PathVariable char letter){
-        ArrayList<Country> sortedCountries = DemoApplication.countryList.sortedCountries(country -> country.getName().toUpperCase().charAt(0) === Character.toUpperCase(letter));
-        return new ResponseEntity<>();
+        ArrayList<Country> sorted = DemoApplication.countryList.sortedCountries(country -> country.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
+        System.out.println(sorted);
+        return new ResponseEntity<>(sorted, HttpStatus.OK);
     }
 
     // /names/size/{number} - eturn the countries alphabetically that have a name equal to or longer than the given length
