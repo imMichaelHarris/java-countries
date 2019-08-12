@@ -21,7 +21,7 @@ public class NamesController {
     // /names/start/{letter} - return alphabetically that start with letter
     @GetMapping(value = "/start/{letter}", produces = {"application/json"})
     public ResponseEntity<?> sortByLetter(@PathVariable char letter){
-        ArrayList<Country> sortedCountries = DemoApplication.countryList.
+        ArrayList<Country> sortedCountries = DemoApplication.countryList.sortedCountries(country -> country.getName().toUpperCase().charAt(0) === Character.toUpperCase(letter));
         return new ResponseEntity<>();
     }
 
