@@ -23,7 +23,7 @@ public class NamesController {
     @GetMapping(value = "/start/{letter}", produces = {"application/json"})
     public ResponseEntity<?> sortByLetter(@PathVariable char letter){
         ArrayList<Country> sorted = DemoApplication.countryList.sortedCountries(country -> country.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
-        System.out.println(sorted);
+        sorted.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(sorted, HttpStatus.OK);
     }
 
