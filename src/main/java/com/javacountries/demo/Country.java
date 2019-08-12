@@ -6,6 +6,13 @@ public class Country {
     private long landMass;
     private int medianAge;
 
+    public Country(String name, long population, long landMass, int medianAge) {
+        this.name = name;
+        this.population = population;
+        this.landMass = landMass;
+        this.medianAge = medianAge;
+    }
+
     public String getName() {
         return name;
     }
