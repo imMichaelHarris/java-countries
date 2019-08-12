@@ -28,4 +28,10 @@ public class NamesController {
     }
 
     // /names/size/{number} - eturn the countries alphabetically that have a name equal to or longer than the given length
+    @GetMapping(value = "/size/{number}", produces = {"application/json"})
+    public ResponseEntity<?> sortByLetter(@PathVariable int number){
+        ArrayList<Country> sorted = DemoApplication.countryList.sortedCountries(country -> country.getName().length() >= number);
+        sorted.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
+        return new ResponseEntity<>(sorted, HttpStatus.OK);
+    }
 }
